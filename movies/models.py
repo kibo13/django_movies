@@ -84,7 +84,7 @@ class Movie(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
     class Meta:
@@ -103,7 +103,7 @@ class MovieShots(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
     class Meta:
@@ -117,7 +117,7 @@ class RatingStar(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.value
 
     class Meta:
         verbose_name = "Звезда рейтинга"
@@ -136,7 +136,7 @@ class Rating(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return f'{self.star} - {self.movie}'
 
     class Meta:
         verbose_name = "Рейтинг"
@@ -157,7 +157,7 @@ class Review(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return f'{self.name} - {self.movie}'
 
     class Meta:
         verbose_name = "Отзыв"
