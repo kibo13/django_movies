@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+
+	<title>Practice Website Django</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- /.styles -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="alt">
+	<!-- /.styles -->
+
+</head>
+<body>
+
+	<ul>
+		<li>
+			<span><b>Год:</b>{{ movie.year }}</span>
+		</li>
+		<li>
+			<span><b>Страна:</b>{{ movie.country }}</span>
+		</li>
+		<li>
+			<span><b>Слоган:</b>{{ movie.tagline }}</span>
+		</li>
+		<li>
+			<span><b>Режиссер:</b>
+				{% for director in movie.directors.all %}
+					{{ director.name }}
+				{% endfor %}
+			</span>
+		</li>
+		<li>
+			<span><b>Актеры:</b>
+				{% for actor in movie.actors.all %}
+					{{ actor.name }}
+				{% endfor %}
+			</span>
+		</li>
+		<li>
+			<span><b>Жанр:</b>
+				{% for genre in movie.genres.all %}
+					{{ genre.name }}
+				{% endfor %}
+			</span>
+		</li>
+		<li>
+			<span><b>Премьера в мире:</b>{{ movie.world_premiere }}</span>
+		</li>
+		<li>
+			<span><b>Бюджет:</b>${{ movie.budget }}</span>
+		</li>
+		<li>
+			<span><b>Сборы в США:</b>${{ movie.fees_in_usa }}</span>
+		</li>
+		<li>
+			<span><b>Сборы в мире:</b>${{ movie.fees_in_world }}</span>
+		</li>
+		<li>
+			<a href=""><b>Рейтинг:</b></a>
+			<span class="fa fa-star" aria-hidden="true"></span>
+			<span class="fa fa-star" aria-hidden="true"></span>
+			<span class="fa fa-star" aria-hidden="true"></span>
+			<span class="fa fa-star" aria-hidden="true"></span>
+			<span class="fa fa-star" aria-hidden="true"></span>
+		</li>
+	</ul>
+	
+</body>
+</html>
